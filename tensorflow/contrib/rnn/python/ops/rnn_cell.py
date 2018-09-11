@@ -3411,7 +3411,7 @@ class MLSTMCell(rnn_cell_impl.LayerRNNCell):
                reuse=None,
                name=None):
 
-    """Initialize the Mulitiplicative LSTM (MLSTM) cell.
+    """Initialize the Multiplicative LSTM (MLSTM) cell.
 
     Args:
       num_units: int, The number of units in the MLSTM cell.
@@ -3529,7 +3529,7 @@ class MLSTMCell(rnn_cell_impl.LayerRNNCell):
     if self._state_is_tuple:
       c, h = state
     else:
-      c, h = array_ops.split(value=state, num_or_size_splits=2, axis=one)
+      c, h = array_ops.split(value=state, num_or_size_splits=2, axis=1)
 
     m = multiply(
         math_ops.matmul(inputs, self._wmx_kernel),
